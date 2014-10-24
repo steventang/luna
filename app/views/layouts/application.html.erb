@@ -15,7 +15,7 @@
 			<%= render 'layouts/header' %>
 			<%= yield %>
 			<%= render 'layouts/footer' %>
-			<div class="sixteen columns debug-dump">
+			<div class="sixteen columns">
 				<%= debug(params) if Rails.env.development? %>
 			</div>
 		</div>
