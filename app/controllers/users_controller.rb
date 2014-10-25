@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+	before_action :signed_in_user, :only => [:index, :edit, :update]
+	before_action :correct_user, 	 :only => [:edit, :update]
+	before_action :admin_user, 		 :only => [:destroy]
+
   def new
   	@user = User.new
   end
@@ -33,10 +37,36 @@ class UsersController < ApplicationController
   	@user = User.friendly.find(params[:id])
   end
 
+  def index
+  	@users = User.paginate(:page => params[:page])
+  end
+
+  def destroy
+  	User.friendly.find(params[:id]).destroy
+  	flash[:success] = "User deleted"
+  	redirect_to users_url
+  end
+
   private
 
   	def user_params
   		params.require(:user).permit(:name, :username, :email, :password)
+  	end
+
+  	def signed_in_user
+  		unless signed_in?
+  			store_location
+  			flash[:danger] = "Please sign in"
+  			redirect_to signin_url
+  		end
+  	end
+
+  	def correct_user
+  		redirect_to root_url unless current_user?(User.friendly.find(params[:id]))
+  	end
+
+  	def admin_user
+  		redirect_to root_url unless current_user.admin?
   	end
 
 end

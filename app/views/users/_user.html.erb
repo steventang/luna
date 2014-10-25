@@ -1,0 +1,7 @@
+<li>
+	<%= link_to user.username, user %>, joined: 
+	<%= time_ago_in_words(user.created_at) + " ago" %>
+	<% if current_user.admin? && !current_user?(user) %>
+		| <%= link_to "delete", user, :method => :delete, :data => { :confirm => "Delete #{user.username}?"} %>
+	<% end %>
+</li>

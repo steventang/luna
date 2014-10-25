@@ -24,11 +24,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-a.btn:hover {
-	color: white;
-	text-decoration: underline;
-}
-
 .header-nav {
 	float: right;
 }
@@ -46,6 +41,16 @@ a.btn:hover {
 	border-top: 1px solid grey;
 }
 
+/* Users */
+
+.users-index {
+	list-style: none;
+}
+
+.users-index li {
+	overflow: auto;
+	padding: 10px 0;
+}
 
 /* Forms */
 
@@ -74,9 +79,38 @@ input, textarea, select, .uneditable-input {
 	color: white;
 }
 
+a.btn:hover {
+	color: white;
+	text-decoration: underline;
+}
+
 .signup-btn {
 	width: auto;
 }
+
+/* Pagination */
+
+.pagination {
+	list-style: none;
+}
+
+.pagination li {
+	display: inline;
+	border: 1px solid grey;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	margin-right: .25em;
+}
+
+li.active {
+	background-color: #86A3D8;
+	a { 
+		color: white;
+	}
+}
+
 /* Helpers */
 
 .center {

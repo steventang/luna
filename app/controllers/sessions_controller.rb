@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   		flash[:success] = "Welcome back!"
   		sign_in user
   		remember user
-  		redirect_to user
+  		redirect_back_or user # friendly fowarding method in sessions helper
   	else
   		flash.now[:danger] = "Invalid email/password combination"
   		render 'new'
