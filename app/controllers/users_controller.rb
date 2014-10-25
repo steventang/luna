@@ -12,20 +12,31 @@ class UsersController < ApplicationController
   	else
   		render 'new'
   	end
+  end
 
+  def edit
+  	@user = User.friendly.find(params[:id])
   end
 
   def update
-  end
+  	@user = User.friendly.find(params[:id])
+  	if @user.update_attributes(user_params)
+  		flash[:success] = "Profile updated"
+  		redirect_to @user
+  	else
+  		render 'edit'
+  	end
+	end  
 
   def show
-  	@user = User.find(params[:id])
+  	# .friendly is for friendly_id gem to make better routes
+  	@user = User.friendly.find(params[:id])
   end
 
   private
 
   	def user_params
-  		params.require(:user).permit(:name, :email, :password)
+  		params.require(:user).permit(:name, :username, :email, :password)
   	end
 
 end

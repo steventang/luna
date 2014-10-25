@@ -1,5 +1,4 @@
-<h1>Sign Up</h1>
-<p>To create a post, sign up!</p>
+<h1>Edit Profile</h1>
 
 <div class="eight columns offset-by-four">
 	<%= form_for @user do |f| %>
@@ -14,7 +13,7 @@
 		<%= f.label :password %>
 		<%= f.password_field :password %>
 
-		<%= f.submit "Sign Up", :class => "btn" %>
+		<%= f.submit "Save updates", :class => "btn" %>
 
 	<% end %>
 </div>

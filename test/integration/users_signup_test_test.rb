@@ -3,11 +3,11 @@ require 'test_helper'
 class UsersSignupTestTest < ActionDispatch::IntegrationTest
   test "valid signup information" do
     get signup_path
-    name  = "Example User"
+    username  = "example"
     email = "user@example.com"
     password = "password"
     assert_difference 'User.count', 1 do
-      post_via_redirect users_path, user: { name:  name,
+      post_via_redirect users_path, user: { username:  name,
                                             email: email,
                                             password: password}
     end
