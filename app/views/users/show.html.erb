@@ -1,3 +1,8 @@
 <% provide(:title, @user.name) %>
 <h1>Profile page for <%= @user.username %></h1>
 <p>I know your email. It's <%= @user.email %></p>
+<p>
+	<% if current_user == @user && !current_user.admin? %>
+	<%= link_to "Delete my account", @user, :method => :delete, :data => { :confirm => "Are you sure? This cannot be undone"} %>
+	<% end %>
+</p>

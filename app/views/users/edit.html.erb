@@ -3,17 +3,8 @@
 
 <div class="eight columns offset-by-four">
 	<%= form_for @user do |f| %>
-		<%= render 'shared/error_messages' %>
 
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-
-		<%= f.label :username %>
-		<%= f.text_field :username %>
-
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-
+		<%= render 'fields', :f => f %>
 		<%= f.submit "Save updates", :class => "btn" %>
 
 	<% end %>

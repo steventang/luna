@@ -11,7 +11,9 @@
 		<%= f.password_field :password %>
 
 		<%= f.submit "Sign in", :class => "btn" %>
+
 	<% end %>
 
 	<p><%= link_to  "Sign up", signup_path %> if you don't have an account.</p>
+	<p><%= link_to "Forgot password", new_password_reset_path %></p>
 </div>
