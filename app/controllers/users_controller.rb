@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   def show
   	# .friendly is for friendly_id gem to make better routes
   	@user = User.friendly.find(params[:id])
+  	@posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
   end
 
   def index
@@ -43,9 +44,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-  	User.friendly.find(params[:id]).destroy
-  	flash[:success] = "User deleted"
+  	User.friendly.find(params[:id]).destroy 	
 		if current_user.admin? # if admin is deleting users from users page, go back to users page
+			flash[:success] = "User deleted"
 			redirect_to users_url
   	else
   		sign_out
@@ -54,22 +55,10 @@ class UsersController < ApplicationController
   	end
   end
 
-  def send_welcome_email
-  	UserMailer.account_creation(self).deliver
-  end
-
   private
 
   	def user_params
   		params.require(:user).permit(:name, :username, :email, :password)
-  	end
-
-  	def signed_in_user
-  		unless signed_in?
-  			store_location
-  			flash[:danger] = "Please sign in"
-  			redirect_to signin_url
-  		end
   	end
 
   	def correct_user

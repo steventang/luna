@@ -52,6 +52,30 @@ a:hover {
 	padding: 10px 0;
 }
 
+/* Posts */
+
+.posts {
+	list-style: none;
+}
+
+.posts .timestamp {
+	color: #7C7C7C;
+}
+
+.post-title {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: .2em;
+}
+
+.post-info {
+	margin-bottom: .5em;
+}
+
+.posts li {
+	padding-bottom: 1.5em;
+}
+
 /* Forms */
 
 input, textarea, select, .uneditable-input {
@@ -115,6 +139,15 @@ li.active {
 
 .center {
 	position: center;
+}
+
+.left {
+  display: inline-block;
+  text-align: left;
+}
+
+.right {
+  display: inline-block;
 }
 
 .debug_dump {

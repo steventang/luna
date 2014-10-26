@@ -1,3 +1,12 @@
 <% provide(:title, "Home") %>
-<h1>The home page of an awesome gaming news site</h1>
-<p>Go sign up</p>
+
+<div class="sixteen columns">
+	<h1>The home page of an awesome gaming news site</h1>
+	<% if !signed_in? %>
+		<p>Go sign up</p>
+	<% end %>
+	<div class="feed">
+		<h3>ARTICLE FEED</h3>
+		<%= render 'shared/feed' %>
+	</div>
+</div>

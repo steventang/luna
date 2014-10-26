@@ -33,7 +33,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     # Invalid password
     patch password_reset_path(user.reset_token),
           email: user.email,
-          user:  { password: "foobaz" }
+          user:  { password: "foo" }
     assert_select 'div#error_explanation'
     # Blank password
     patch password_reset_path(user.reset_token),

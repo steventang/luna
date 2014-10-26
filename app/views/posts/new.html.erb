@@ -1,0 +1,15 @@
+<div class="twelve columns offset-by-two">
+	<h1>Write a post</h1>
+	<%= form_for @post do |f| %>
+		<%= render 'shared/error_messages', :object => f.object %>
+
+		<%= f.label :title %>
+		<%= f.text_field :title, :placeholder => "Come up with an interesting title" %>
+
+		<%= f.label :text_content, "Post body" %>
+		<%= f.text_area :text_content, :rows => 15, :placeholder => "Write something..." %>
+
+		<%= f.submit "Post", :class => "btn" %>
+
+	<% end %>
+</div>

@@ -1,8 +1,26 @@
-<% provide(:title, @user.name) %>
-<h1>Profile page for <%= @user.username %></h1>
-<p>I know your email. It's <%= @user.email %></p>
-<p>
-	<% if current_user == @user && !current_user.admin? %>
-	<%= link_to "Delete my account", @user, :method => :delete, :data => { :confirm => "Are you sure? This cannot be undone"} %>
-	<% end %>
-</p>
+<% provide(:title, @user.username) %>
+
+<div class="left sixteen columns">
+	<div class="left four columns">
+		<section class="user-info">
+			<h1><%= @user.username %></h1>
+			Joined on <%= @user.created_at.strftime("%B %d, %Y") %>
+			<% if current_user == @user && !current_user.admin? %>
+				<%= link_to "Delete account", @user, :method => :delete, :data => { :confirm => "Are you sure? This cannot be undone"} %>
+			<% end %>
+		</section>
+	</div>
+	<div class="right eleven columns">
+		<h3>Posts</h3>
+		<% if @user.posts.any? %>
+			<ol class="posts posts-on-profile">
+				<%= render @posts %>
+			</ol>
+			<%= will_paginate @posts %>
+		<% else %>
+			<p>
+				You haven't made any posts yet. It's easy - just click here
+			</p>
+		<% end %>
+	</div>
+</div>

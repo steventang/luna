@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :username
 
+	has_many :posts, :dependent => :destroy
+
 	attr_accessor :remember_token, :reset_token
 
 	before_save :downcase_email
@@ -64,6 +66,10 @@ class User < ActiveRecord::Base
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def feed
+  	Post.all
   end
 
 	private
