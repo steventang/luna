@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
 	include ActionView::Helpers::TextHelper
+	include Bootsy::Container
 
   belongs_to :user
   default_scope -> { order('created_at DESC') }
@@ -8,6 +9,7 @@ class Post < ActiveRecord::Base
   validates :text_content, :presence => true
 
   def preview
-  	truncate(text_content, :length => 140 )
+  	# get the rich text html output, remove tags, then truncate for preview
+  	truncate(strip_tags(text_content), :length => 140 )
   end
 end

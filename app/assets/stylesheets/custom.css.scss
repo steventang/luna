@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -22,6 +25,11 @@ a:hover {
 	color:#00A0C6;
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+.header {
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .header-nav {
@@ -87,7 +95,7 @@ input, textarea, select, .uneditable-input {
   font-size: 14px;
 }
 
-.btn {
+.mybtn {
 	background: #6a89d8;
 	color: white;
 	border: #6a89d8 solid;
@@ -99,11 +107,11 @@ input, textarea, select, .uneditable-input {
 	width: 100%;
 }
 
-.btn a {
+.mybtn a {
 	color: white;
 }
 
-a.btn:hover {
+a.mybtn:hover {
 	color: white;
 	text-decoration: underline;
 }

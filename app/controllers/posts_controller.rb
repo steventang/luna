@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 	private
 
 		def post_params
-			params.require(:post).permit(:title, :text_content)
+			params.require(:post).permit(:title, :text_content, :bootsy_image_gallery_id)
 		end
 
 		def correct_user
