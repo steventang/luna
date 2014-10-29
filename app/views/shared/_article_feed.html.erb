@@ -1,0 +1,6 @@
+<% if @article_feed_items.any? %>
+  <ol class="posts">
+    <%= render @article_feed_items %>
+  </ol>
+  <%= will_paginate @article_feed_items, param_name: 'article_feed_page' %>
+<% end %>

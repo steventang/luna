@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'arts/new'
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   get 'password_resets/new'
@@ -20,7 +22,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :password_resets, :only => [:new, :create, :edit, :update]
-  resources :posts,           :only => [:new, :create, :show, :destroy]
+  resources :posts,           :only => [:new, :create, :edit, :show, :destroy]
+  resources :arts,           :only => [:new, :create, :edit, :show, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

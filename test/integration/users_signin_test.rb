@@ -4,7 +4,8 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
 
 	def setup
 		@user = users(:steven) # comes from fixtures
-    @feed_items = []
+    @article_feed_items = []
+    @article_feed_items = []
 	end
 
   test "sign in with invalid information" do

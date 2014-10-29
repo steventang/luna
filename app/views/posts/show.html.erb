@@ -1,6 +1,6 @@
 <% provide(:title, @post.title) %>
 
-<div class="twelve columns offset-by-two">
+<div class="sixteen columns">
 	<div class="post-title"><%= link_to @post.title, @post %></div>
 	<div class="post-info">
 	  <span class="user"><%= link_to @post.user.username, @post.user %></span>
@@ -9,9 +9,11 @@
 	  </span>
 	</div>
   <span class="text_content"><%= raw(@post.text_content) %></span>
-  <% if current_user?(@post.user) %>
-    <%= link_to "delete", @post, method: :delete,
-                                     data: { confirm: "Delete this post?" },
-                                     title: @post.title %>
-  <% end %>
+  <div>
+	  <% if current_user?(@post.user) %>
+	    <%= link_to "delete", @post, method: :delete,
+	                                     data: { confirm: "Delete this post?" },
+	                                     title: @post.title %>
+	  <% end %>
+	 </div>
 </div>

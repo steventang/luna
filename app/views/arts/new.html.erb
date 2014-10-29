@@ -1,0 +1,27 @@
+<div class="twelve columns offset-by-two">
+	<h1>Upload an image</h1>
+
+	<%= form_for(@art, html: { multipart: true }) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<%= f.label :title %>
+		<%= f.text_field :title, placeholder: "Come up with an interesting title" %>
+
+		<%= f.file_field :picture, accept: 'image/jpeg, image/jpg, image/gif, image/png' %>
+
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description %>
+
+		<%= f.submit "Upload art", :class => "btn" %>
+
+		<script type="text/javascript">
+		  $('#art_picture').bind('change', function() {
+		    size_in_megabytes = this.files[0].size/1024/1024;
+		    if (size_in_megabytes > 3) {
+		      alert('Maximum file size is 3MB. Please choose a smaller file.');
+		    }
+		  });
+		</script>
+
+	<% end %>
+</div>

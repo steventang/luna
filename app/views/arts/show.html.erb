@@ -1,0 +1,17 @@
+<% provide(:title, @art.title) %>
+
+<div class="sixteen columns">
+	<div class="post-title"><%= link_to @art.title, @art %></div>
+	<div class="post-info">
+	  <span class="user"><%= link_to @art.user.username, @art.user %></span>
+	  <span class="timestamp">
+	    (Posted on <%= @art.created_at.strftime("%B %d, %Y") %>)
+	  </span>
+	</div>
+  <span class="art_content"><%= image_tag @art.picture.url %></span>
+  <% if current_user?(@art.user) %>
+    <%= link_to "delete", @art, method: :delete,
+                                     data: { confirm: "Delete this post?" },
+                                     title: @art.title %>
+  <% end %>
+</div>

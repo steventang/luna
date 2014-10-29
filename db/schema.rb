@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027194029) do
+ActiveRecord::Schema.define(version: 20141029055238) do
+
+  create_table "arts", force: true do |t|
+    t.string   "picture"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "arts", ["user_id", "created_at"], name: "index_arts_on_user_id_and_created_at"
+  add_index "arts", ["user_id"], name: "index_arts_on_user_id"
 
   create_table "bootsy_image_galleries", force: true do |t|
     t.integer  "bootsy_resource_id"
@@ -49,6 +61,7 @@ ActiveRecord::Schema.define(version: 20141027194029) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "title"
+    t.string   "picture"
   end
 
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
