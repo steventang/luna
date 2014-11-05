@@ -9,6 +9,8 @@
 	  </span>
 	</div>
   <span class="text_content"><%= raw(@post.text_content) %></span>
+  <div class="post-category">
+		Tags: <%= @post.tag_list %>
   <div>
 	  <% if current_user?(@post.user) %>
 	    <%= link_to "delete", @post, method: :delete,

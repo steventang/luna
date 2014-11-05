@@ -5,8 +5,8 @@ class StaticPagesController < ApplicationController
   	  @article_feed_items = current_user.article_feed.paginate(page: params[:article_feed_page], per_page: 20)
       @art_feed_items = current_user.art_feed.paginate(page: params[:art_feed_page], per_page: 20)
 	 	else
-  		@article_feed_items = default_article_feed.paginate(:page => params[:article_feed_page], :per_page => 20)
-      @art_feed_items = default_art_feed.paginate(:page => params[:art_feed_page], :per_page => 20)
+  		@article_feed_items = default_article_feed.paginate(page: params[:article_feed_page], per_page: 20)
+      @art_feed_items = default_art_feed.paginate(page: params[:art_feed_page], per_page: 20)
     end
   end
 

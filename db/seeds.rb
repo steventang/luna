@@ -24,5 +24,6 @@ users = User.order(:created_at).take(15)
 10.times do
 	title = Faker::Lorem.word
   content = Faker::Lorem.sentence(50)
-  users.each { |user| user.posts.create!(title: title, text_content: content) }
+  tag_list = ["League of Legends", "DotA", "Starcraft"].sample
+  users.each { |user| user.posts.create!(title: title, text_content: content. tag_list: tag_list) }
 end

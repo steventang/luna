@@ -9,6 +9,23 @@
 		<%= f.label :text_content, "Post body" %>
 		<%= f.bootsy_area :text_content, :rows => 30 , :editor_options => { :color => false } %>
 
+		<%= f.label :tag_list, "Choose a tag" %>
+		<div id="categories" >
+			<ul>
+				<li>
+					<%= f.radio_button(:tag_list, "League of Legends") %>
+					<%= f.label(:tag_list_league, "League of Legends") %>
+				</li>
+				<li>
+					<%= f.radio_button(:tag_list, "DotA") %>
+					<%= f.label(:tag_list_dota, "DotA") %>
+				</li>
+				<li>
+					<%= f.radio_button(:tag_list, "Starcraft") %>
+					<%= f.label(:tag_list_starcraft, "Starcraft") %>
+				</li>
+			</ul>
+		</div>
 		<%= f.submit "Post", :class => "btn" %>
 
 	<% end %>

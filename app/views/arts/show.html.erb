@@ -9,6 +9,9 @@
 	  </span>
 	</div>
   <span class="art_content"><%= image_tag @art.picture.url %></span>
+  <div>
+  	<%= @art.description %>
+  </div>
   <% if current_user?(@art.user) %>
     <%= link_to "delete", @art, method: :delete,
                                      data: { confirm: "Delete this post?" },
