@@ -26,6 +26,11 @@ class PostsController < ApplicationController
     redirect_to request.referrer || root_url
 	end
 
+	def tags
+		@tag = params[:tag].downcase
+		@article_feed_items = Post.tagged_with(@tag).paginate(page: params[:page], per_page: 20)
+	end
+
 	private
 
 		def post_params

@@ -8,7 +8,10 @@
 	</div>
   <span class="text_content"><%= post.preview %></span>
   <span class="post-category">
-		Tags: <%= post.tag_list %>
+		Tags: 
+		<% for tag in post.tag_list %>
+			<%= link_to tag, controller: "posts", action: "tags", tag: tag %> 
+		<% end %>
   <span>
   <% if current_user?(post.user) %>
     <%= link_to "delete", post, method: :delete,
