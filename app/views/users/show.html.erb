@@ -11,15 +11,15 @@
 		</section>
 	</div>
 	<div class="right eleven columns">
-		<h3>Posts</h3>
-		<% if @user.posts.any? %>
-			<ol class="posts posts-on-profile">
-				<%= render @posts %>
+		<h3>Articles</h3>
+		<% if @user.articles.any? %>
+			<ol class="articles articles-on-profile">
+				<%= render @articles %>
 			</ol>
-			<%= will_paginate @posts %>
+			<%= will_paginate @articles %>
 		<% else %>
 			<p>
-				You haven't made any posts yet. It's easy - just click here
+				You haven't written any articles yet. It's easy - just click here
 			</p>
 		<% end %>
 	</div>

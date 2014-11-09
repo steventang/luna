@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
 
   private
 	  def default_article_feed
-	  	Post.all
+	  	Article.all
 	  end 
 
     def default_art_feed

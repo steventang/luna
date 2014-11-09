@@ -1,29 +1,29 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionController::TestCase
+class ArticlesControllerTest < ActionController::TestCase
   def setup
-    @post = posts(:orange)
+    @article = articles(:orange)
   end
 
   test "should redirect create when not signed in" do
-    assert_no_difference 'Post.count' do
-      post :create, post: { text_content: "Lorem ipsum" }
+    assert_no_difference 'article.count' do
+      article :create, article: { text_content: "Lorem ipsum" }
     end
     assert_redirected_to signin_url
   end
 
   test "should redirect destroy when not signed in" do
-    assert_no_difference 'Post.count' do
-      delete :destroy, id: @post
+    assert_no_difference 'article.count' do
+      delete :destroy, id: @article
     end
     assert_redirected_to signin_url
   end
 
-  test "should redirect destroy for wrong post" do
+  test "should redirect destroy for wrong article" do
     sign_in_as(users(:robert))
-    post = posts(:orange)
-    assert_no_difference 'post.count' do
-      delete :destroy, id: post
+    article = articles(:orange)
+    assert_no_difference 'article.count' do
+      delete :destroy, id: article
     end
     assert_redirected_to root_url
   end

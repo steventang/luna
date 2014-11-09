@@ -1,27 +1,27 @@
 require 'test_helper'
 
-class PostTest < ActiveSupport::TestCase
+class ArticleTest < ActiveSupport::TestCase
   def setup
     @user = users(:steven)
     # This code is not idiomatically correct.
-    @post = @user.posts.build(text_content: "Lorem ipsum")
+    @article = @user.articles.build(text_content: "Lorem ipsum")
   end
 
-  test "post should be valid" do
-    assert @post.valid?
+  test "article should be valid" do
+    assert @article.valid?
   end
 
   test "user id should be present" do
-    @post.user_id = nil
-    assert_not @post.valid?
+    @article.user_id = nil
+    assert_not @article.valid?
   end
 
   test "order should be most recent first" do
-    assert_equal Post.first, posts(:most_recent)
+    assert_equal Article.first, articles(:most_recent)
   end
 
   test "text_content should be present " do
-    @post.text_content = " "
-    assert_not @post.valid?
+    @article.text_content = " "
+    assert_not @article.valid?
   end	
 end

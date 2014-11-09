@@ -19,7 +19,7 @@ most_recent:
   user: steven
 
 <% 30.times do |n| %>
-post_<%= n %>:
+article_<%= n %>:
   text_content: <%= Faker::Lorem.sentence(5) %>
   created_at: <%= 42.days.ago %>
   user: steven

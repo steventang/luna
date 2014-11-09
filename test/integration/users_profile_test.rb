@@ -11,9 +11,9 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_select 'title', full_title(@user.username)
     assert_match @user.username, response.body
-    assert_match @user.posts.count.to_s, response.body
+    assert_match @user.articles.count.to_s, response.body
     assert_select 'div.pagination'
-    @user.posts.paginate(page: 1).each do |post|
+    @user.articles.paginate(page: 1).each do |post|
       assert_match post.text_content, response.body
     end
   end

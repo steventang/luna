@@ -1,12 +1,12 @@
 <div class="sixteen columns">
-	<h1>Write a post</h1>
-	<%= form_for @post do |f| %>
+	<h1>Write an article</h1>
+	<%= form_for @article do |f| %>
 		<%= render 'shared/error_messages', :object => f.object %>
 
 		<%= f.label :title %>
 		<%= f.text_field :title, :placeholder => "Come up with an interesting title" %>
 
-		<%= f.label :text_content, "Post body" %>
+		<%= f.label :text_content, "Article body" %>
 		<%= f.bootsy_area :text_content, :rows => 30 , :editor_options => { :color => false } %>
 
 		<%= f.label :tag_list, "Choose a tag" %>
@@ -26,7 +26,7 @@
 				</li>
 			</ul>
 		</div>
-		<%= f.submit "Post", :class => "btn" %>
+		<%= f.submit "Post Article", :class => "btn" %>
 
 	<% end %>
 </div>

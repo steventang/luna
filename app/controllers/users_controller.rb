@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def show
   	# .friendly is for friendly_id gem to make better routes
   	@user = User.friendly.find(params[:id])
-  	@posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
+  	@articles = @user.articles.paginate(:page => params[:page], :per_page => 10)
   end
 
   def index

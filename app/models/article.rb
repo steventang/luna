@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Article < ActiveRecord::Base
 	include ActionView::Helpers::TextHelper
 	include Bootsy::Container
 

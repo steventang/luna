@@ -7,9 +7,6 @@
   box-sizing:         border-box;
 }
 
-body {
-	font-family: open sans;
-}
 
 h1 {
 	font-weight: 400;
@@ -70,33 +67,33 @@ label {
 	padding: 10px 0;
 }
 
-/* Posts */
+/* Articles */
 
-.posts {
+.articles {
 	list-style: none;
 }
 
-.posts .timestamp {
+.articles .timestamp {
 	color: #7C7C7C;
 }
 
-.post-title {
+.article-title {
 	font-size: 20px;
 	font-weight: 600;
 	margin-bottom: .2em;
 }
 
-.post-info {
+.article-info {
 	margin-bottom: .5em;
 }
 
-.posts ol {
+.articles ol {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
 }
 
-.posts li {
+.articles li {
 	padding-bottom: 1.5em;
 }
 
@@ -109,7 +106,7 @@ label {
 	padding-right: 1em;
 }
 
-.post-category {
+.article-category {
 	font-size: 12px;
 	color: grey;
 }
@@ -150,7 +147,7 @@ a.mybtn:hover {
 	width: auto;
 }
 
-/* Pagination */
+/* Pagination 
 
 .pagination {
 	list-style: none;
@@ -171,7 +168,7 @@ li.active {
 	a { 
 		color: white;
 	}
-}
+} */
 
 /* Helpers */
 

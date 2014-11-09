@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :username
 
-	has_many :posts, :dependent => :destroy
+	has_many :articles, :dependent => :destroy
   has_many :arts, dependent: :destroy
 
 	attr_accessor :remember_token, :reset_token
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
   # The idea is that these feeds would change as we think of an algo. Right now it's == default feed
   def article_feed
-  	Post.all
+  	Article.all
   end
 
   def art_feed

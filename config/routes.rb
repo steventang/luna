@@ -22,10 +22,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :password_resets, :only => [:new, :create, :edit, :update]
-  resources :posts,           :only => [:new, :create, :edit, :show, :destroy]
+  resources :articles,           :only => [:new, :create, :edit, :show, :destroy]
   resources :arts,            :only => [:new, :create, :edit, :show, :destroy]
 
-  get 'tags/:tag', to: 'posts#tags'
+  get 'tags/:tag', to: 'articles#tags'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,8 +1,8 @@
 <% provide(:title, @art.title) %>
 
 <div class="sixteen columns">
-	<div class="post-title"><%= link_to @art.title, @art %></div>
-	<div class="post-info">
+	<div class="article-title"><%= link_to @art.title, @art %></div>
+	<div class="article-info">
 	  <span class="user"><%= link_to @art.user.username, @art.user %></span>
 	  <span class="timestamp">
 	    (Posted on <%= @art.created_at.strftime("%B %d, %Y") %>)
@@ -17,4 +17,5 @@
                                      data: { confirm: "Delete this post?" },
                                      title: @art.title %>
   <% end %>
+  <div class="fb-comments" data-href="http://esportspn.herokuapp.com" data-numposts="5" data-colorscheme="light"></div>
 </div>

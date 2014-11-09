@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104005131) do
+ActiveRecord::Schema.define(version: 20141108235921) do
+
+  create_table "articles", force: true do |t|
+    t.text     "text_content"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "title"
+    t.string   "picture"
+  end
+
+  add_index "articles", ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "arts", force: true do |t|
     t.string   "picture"
@@ -54,18 +66,6 @@ ActiveRecord::Schema.define(version: 20141104005131) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
-
-  create_table "posts", force: true do |t|
-    t.text     "text_content"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "title"
-    t.string   "picture"
-  end
-
-  add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
