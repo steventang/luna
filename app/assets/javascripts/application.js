@@ -14,6 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require bootsy
-//= require turbolinks
+// will have to require turbolinks if we turn it back on
 
 //= require_tree .

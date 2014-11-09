@@ -12,9 +12,9 @@
 		<% for tag in article.tag_list %>
 			<%= link_to tag, controller: "articles", action: "tags", tag: tag %> 
 		<% end %>
-  <span>
+  </span>
   <% if current_user?(article.user) %>
-    <%= link_to "delete", article, method: :delete,
+    <%= link_to "(delete)", article, method: :delete,
                                      data: { confirm: "Delete this article?" },
                                      title: article.title %>
   <% end %>

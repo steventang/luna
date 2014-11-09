@@ -19,7 +19,7 @@
 			<%= will_paginate @articles %>
 		<% else %>
 			<p>
-				You haven't written any articles yet. It's easy - just click here
+				You haven't written any articles yet. It's easy - just click <%= link_to "here", new_article_path %>
 			</p>
 		<% end %>
 	</div>

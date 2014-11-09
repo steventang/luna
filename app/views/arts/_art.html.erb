@@ -8,7 +8,7 @@
 	</div>
   <span class="art_content"><%= image_tag art.picture.url(:feed) %></span>
   <% if current_user?(art.user) %>
-    <%= link_to "delete", art, method: :delete,
+    <%= link_to "(delete)", art, method: :delete,
                                      data: { confirm: "Delete this article?" },
                                      title: art.title %>
   <% end %>
